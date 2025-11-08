@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/benguiat');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
 
 body {
     font-family: Arial, sans-serif;
@@ -16,21 +16,24 @@ body {
 }
 
 .stranger-title {
-    font-family: 'Benguiat', 'Bookman Old Style', serif;
+    font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 3.5em;
-    font-weight: bold;
-    color: #ff0000;
+    font-weight: 900;
+    color: #800000;
+    -webkit-text-fill-color: #800000;
+    -webkit-text-stroke: 1px #000000;
+    text-stroke: 1px #000000;
     text-shadow: 
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 30px #ff0000,
-        0 0 40px #ff0000,
-        0 0 70px #ff0000,
-        0 0 80px #ff0000,
-        0 0 100px #ff0000;
-    letter-spacing: 0.1em;
+        /* Ombre pour relief */
+        3px 3px 0 #8b0000,
+        /* Halo rouge */
+        0 0 10px rgba(255, 0, 0, 0.6),
+        0 0 20px rgba(255, 0, 0, 0.4),
+        0 0 30px rgba(255, 0, 0, 0.3);
+    letter-spacing: 0.02em;
     margin: 20px 0;
     animation: flicker 3s infinite;
+    position: relative;
 }
 
 .subtitle {
@@ -101,9 +104,10 @@ body {
 }
 
 .card::before {
-    content: "ST";
+    content: "?";
+    font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 48px;
-    font-weight: bold;
+    font-weight: 900;
     color: #ff0000;
     text-shadow: 
         0 0 10px #ff0000,
@@ -134,11 +138,11 @@ body {
 }
 
 .card.matched {
-    border: solid 4px #00ff00;
+    border: solid 4px #e99390;
     box-sizing: border-box;
     cursor: default;
     box-shadow: 
-        0 0 20px rgba(0, 255, 0, 0.8),
+        0 0 20px rgba(255, 0, 0, 0.8),
         inset 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
