@@ -1,12 +1,13 @@
+// Images de Stranger Things - utilisant des URLs publiques compatibles CORS
 const cards = [
-    'https://picsum.photos/id/237/100/100', 
-    'https://picsum.photos/id/238/100/100',
-    'https://picsum.photos/id/239/100/100',
-    'https://picsum.photos/id/240/100/100',
-    'https://picsum.photos/id/241/100/100',
-    'https://picsum.photos/id/242/100/100',
-    'https://picsum.photos/id/243/100/100',
-    'https://picsum.photos/id/244/100/100'
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=ELEVEN',
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=MIKE',
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=DUSTIN',
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=LUCAS',
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=WILL',
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=MAX',
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=STEVE',
+    'https://via.placeholder.com/100/8B0000/FFFFFF?text=HOPPER'
   ];
 
 const gameBoard = document.getElementById('game-board');
@@ -86,7 +87,11 @@ function launchConfetti() {
 }
 
 function onCardClick(e) {
-    const card = e.target.parentElement;
+    // Trouver la carte (.card) même si on clique sur l'image
+    const card = e.target.classList.contains('card') ? e.target : e.target.closest('.card');
+    
+    // Si on ne trouve pas la carte, on sort
+    if (!card) return;
     
     // Démarrer le chronomètre au premier clic
     if (!gameStarted) {
@@ -117,7 +122,7 @@ function onCardClick(e) {
                 const finalTime = Math.floor((Date.now() - startTime) / 1000);
                 launchConfetti();
                 setTimeout(() => {
-                    alert(`Félicitations ! Vous avez trouvé toutes les paires en ${finalTime} secondes !`);
+                    alert(`🎉 Bravo ! Vous avez sauvé Hawkins en ${finalTime} secondes ! L'Upside Down est fermé ! 🎉`);
                 }, 500);
             }
         }

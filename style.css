@@ -1,17 +1,71 @@
+@import url('https://fonts.cdnfonts.com/css/benguiat');
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: rgb(83, 10, 117);
+    background-color: #000000;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.2) 0%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-h1 {
-    color: white;
+.stranger-title {
+    font-family: 'Benguiat', 'Bookman Old Style', serif;
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 30px #ff0000,
+        0 0 40px #ff0000,
+        0 0 70px #ff0000,
+        0 0 80px #ff0000,
+        0 0 100px #ff0000;
+    letter-spacing: 0.1em;
+    margin: 20px 0;
+    animation: flicker 3s infinite;
+}
+
+.subtitle {
+    font-size: 0.4em;
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #ffffff,
+        0 0 10px #ffffff;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 30px #ff0000,
+            0 0 40px #ff0000,
+            0 0 70px #ff0000,
+            0 0 80px #ff0000,
+            0 0 100px #ff0000;
+    }
+    20%, 24%, 55% {        
+        text-shadow: none;
+    }
 }
 
 #timer {
     font-size: 24px;
-    font-weight: bold;
-    color: white;
+    font-weight: normal;
+    color: #ff0000;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000;
     margin: 10px 0;
 }
 
@@ -25,42 +79,157 @@ h1 {
 }
 
 .card {
-    background-color: #ccc;
-    border-radius: 5px;
+    background-color: #1a1a1a;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 
+        0 0 10px rgba(255, 0, 0, 0.5),
+        inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.card:hover {
+    box-shadow: 
+        0 0 20px rgba(255, 0, 0, 0.8),
+        inset 0 0 10px rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
 }
 
 .card::before {
-    content: "?";
+    content: "ST";
     font-size: 48px;
     font-weight: bold;
-    color: #766ba7;
+    color: #ff0000;
+    text-shadow: 
+        0 0 10px #ff0000,
+        0 0 20px #ff0000;
     position: absolute;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .card.flipped::before {
-    display: none;
-}
-.card .card-content {
     opacity: 0;
-    max-width: 100%;
-    transition: rotateY (180deg);
-    transition: all 0.3s;
-  }
+}
+
+.card .card-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.card:not(.flipped) .card-content {
+    opacity: 0;
+}
 
 .card.flipped .card-content {
-    opacity: 1;    
-    transform: rotateY(180deg);
+    opacity: 1;
 }
 
 .card.matched {
-    border: solid 4px rgb(233, 24, 163);
+    border: solid 4px #00ff00;
     box-sizing: border-box;
     cursor: default;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.8),
+        inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Animation flocons de neige */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10%;
+    color: white;
+    font-size: 1.5em;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.snowflake:nth-child(1) {
+    left: 10%;
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+
+.snowflake:nth-child(2) {
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
+
+.snowflake:nth-child(3) {
+    left: 30%;
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.snowflake:nth-child(4) {
+    left: 40%;
+    animation-duration: 14s;
+    animation-delay: 0.5s;
+}
+
+.snowflake:nth-child(5) {
+    left: 50%;
+    animation-duration: 11s;
+    animation-delay: 1.5s;
+}
+
+.snowflake:nth-child(6) {
+    left: 60%;
+    animation-duration: 9s;
+    animation-delay: 2.5s;
+}
+
+.snowflake:nth-child(7) {
+    left: 70%;
+    animation-duration: 13s;
+    animation-delay: 0.8s;
+}
+
+.snowflake:nth-child(8) {
+    left: 80%;
+    animation-duration: 10s;
+    animation-delay: 1.8s;
+}
+
+.snowflake:nth-child(9) {
+    left: 90%;
+    animation-duration: 12s;
+    animation-delay: 0.3s;
+}
+
+.snowflake:nth-child(10) {
+    left: 15%;
+    animation-duration: 11s;
+    animation-delay: 2.2s;
+}
+
+h1, #timer, #game-board {
+    position: relative;
+    z-index: 2;
 }
 
