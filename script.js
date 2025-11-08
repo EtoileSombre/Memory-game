@@ -53,7 +53,7 @@ function startTimer() {
 
 function updateTimer() {
     const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-    document.getElementById('timer').textContent = `Temps : ${elapsedTime}s`;
+    document.getElementById('timer').textContent = `⏱️ ${elapsedTime}s`;
 }
 
 function stopTimer() {
