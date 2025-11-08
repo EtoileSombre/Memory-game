@@ -4,6 +4,17 @@ body {
     background-color: rgb(83, 10, 117);
 }
 
+h1 {
+    color: white;
+}
+
+#timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 10px 0;
+}
+
 #game-board {
   display: grid;
   grid-template-columns: repeat(4, 100px);

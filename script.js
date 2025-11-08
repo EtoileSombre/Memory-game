@@ -11,6 +11,9 @@ const cards = [
 
 const gameBoard = document.getElementById('game-board');
 let selectedCards = [];
+let startTime = null;
+let timerInterval = null;
+let gameStarted = false;
 
 function createCard(CardUrl) {
     const card = document.createElement('div');
@@ -42,8 +45,54 @@ function shuffleArray(arrayToShuffle) {
     return shuffledArray;
 }
 
+function startTimer() {
+    startTime = Date.now();
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById('timer').textContent = `Temps : ${elapsedTime}s`;
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function launchConfetti() {
+    const duration = 3000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ['#bb0000', '#ffffff', '#00bb00', '#0000bb', '#ffff00']
+        });
+        confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ['#bb0000', '#ffffff', '#00bb00', '#0000bb', '#ffff00']
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
+}
+
 function onCardClick(e) {
     const card = e.target.parentElement;
+    
+    // Démarrer le chronomètre au premier clic
+    if (!gameStarted) {
+        startTimer();
+        gameStarted = true;
+    }
     
     // Empêcher de cliquer sur une carte déjà retournée ou la même carte deux fois
     if (card.classList.contains("flipped") || selectedCards.length === 2) {
@@ -64,7 +113,12 @@ function onCardClick(e) {
 
             const allCardsNotMatched = document.querySelectorAll('.card:not(.matched)');
             if (allCardsNotMatched.length === 0) {
-                alert("Félicitations ! Vous avez trouvé toutes les paires !");
+                stopTimer();
+                const finalTime = Math.floor((Date.now() - startTime) / 1000);
+                launchConfetti();
+                setTimeout(() => {
+                    alert(`Félicitations ! Vous avez trouvé toutes les paires en ${finalTime} secondes !`);
+                }, 500);
             }
         }
         else {
