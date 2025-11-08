@@ -1,32 +1,33 @@
-// Images de Stranger Things - utilisant des URLs publiques compatibles CORS
+// Emojis Stranger Things
 const cards = [
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=ELEVEN',
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=MIKE',
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=DUSTIN',
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=LUCAS',
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=WILL',
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=MAX',
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=STEVE',
-    'https://via.placeholder.com/100/8B0000/FFFFFF?text=HOPPER'
-  ];
+    '👧', // Eleven
+    '🐙', // Demogorgon
+    '🚲', // Vélo
+    '🧇', // Eggos
+    '💡', // Lumières
+    '📻', // Walkie-talkie
+    '🎮', // D&D/Arcade
+    '🔦'  // Lampe torche
+];
 
 const gameBoard = document.getElementById('game-board');
 let selectedCards = [];
 let startTime = null;
 let timerInterval = null;
 let gameStarted = false;
+let score = 0;
+let attempts = 0;
 
-function createCard(CardUrl) {
+function createCard(cardEmoji) {
     const card = document.createElement('div');
     card.classList.add('card');
-    card.dataset.value = CardUrl;
+    card.dataset.value = cardEmoji;
 
-    const cardContent = document.createElement('img');
+    const cardContent = document.createElement('div');
     cardContent.classList.add('card-content');
-    cardContent.src = CardUrl;
+    cardContent.textContent = cardEmoji;
 
     card.appendChild(cardContent);
-
 
     card.addEventListener('click', onCardClick);
     return card;
@@ -58,6 +59,10 @@ function updateTimer() {
 
 function stopTimer() {
     clearInterval(timerInterval);
+}
+
+function updateScore() {
+    document.getElementById('score').textContent = `Score : ${score}`;
 }
 
 function launchConfetti() {
@@ -108,6 +113,7 @@ function onCardClick(e) {
 
     selectedCards.push(card);
     if (selectedCards.length === 2) {
+        attempts++;
 
         if(selectedCards[0].dataset.value == selectedCards[1].dataset.value){
             selectedCards[0].classList.add("matched");
@@ -115,15 +121,16 @@ function onCardClick(e) {
             selectedCards[0].removeEventListener('click', onCardClick);
             selectedCards[1].removeEventListener('click', onCardClick);
             selectedCards = [];
+            
+            // Augmenter le score pour une paire trouvée
+            score += 100;
+            updateScore();
 
             const allCardsNotMatched = document.querySelectorAll('.card:not(.matched)');
             if (allCardsNotMatched.length === 0) {
                 stopTimer();
                 const finalTime = Math.floor((Date.now() - startTime) / 1000);
                 launchConfetti();
-                setTimeout(() => {
-                    alert(`🎉 Bravo ! Vous avez sauvé Hawkins en ${finalTime} secondes ! L'Upside Down est fermé ! 🎉`);
-                }, 500);
             }
         }
         else {
