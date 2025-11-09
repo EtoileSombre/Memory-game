@@ -1,12 +1,12 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Stranger Things Memory Game</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stranger Things Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="particles" aria-hidden="true">
         <div class="particle"></div>
         <div class="particle"></div>
@@ -34,51 +34,34 @@
         <div class="particle"></div>
         <div class="particle"></div>
     </div>
-    <!-- <div class="snowflakes" aria-hidden="true">
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-    </div> -->
-    <div class="christmas-lights">
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="light"></div>
+    <div class="christmas-lights" aria-hidden="true">
+        <div class="light" data-letter="S"></div>
+        <div class="light" data-letter="T"></div>
+        <div class="light" data-letter="R"></div>
+        <div class="light" data-letter="A"></div>
+        <div class="light" data-letter="N"></div>
+        <div class="light" data-letter="G"></div>
+        <div class="light" data-letter="E"></div>
+        <div class="light" data-letter="R"></div>
+        <div class="light" data-letter="T"></div>
+        <div class="light" data-letter="H"></div>
+        <div class="light" data-letter="I"></div>
+        <div class="light" data-letter="N"></div>
+        <div class="light" data-letter="G"></div>
+        <div class="light" data-letter="S"></div>
         <div class="light"></div>
     </div>
-    <div class="netflix-logo">N</div>
-        <h1 class="stranger-title"><span class="bold-s">S</span>TRANGER THING<span class="bold-s">S</span><br><span class="subtitle">Le monde à l'envers</span></h1>
+    <div class="netflix-logo" aria-hidden="true">N</div>
+    <h1 class="stranger-title">
+        <span class="bold-s">S</span>TRANGER THING<span class="bold-s">S</span>
+        <br>
+        <span class="subtitle">Le monde à l'envers</span>
+    </h1>
     <div id="timer">⏱️</div>
     <div id="game-board"></div>
     <div id="score">Score : 0</div>
+    <button id="reset-btn">Restart</button>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
-    </body>
-    </html>
+</body>
+</html>

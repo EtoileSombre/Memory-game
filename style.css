@@ -96,96 +96,106 @@ body {
     }
 }
 
-/* Couleurs des lumières */
+/* Couleurs des lumières - Côté gauche : STRANGER */
 .light:nth-child(1) { 
-    top: 10%; left: 5%;
+    top: 15%; left: 5%;
     background-color: #ff0000;
     box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
     animation: lightBlink1 2s infinite; animation-delay: 0s; 
 }
 .light:nth-child(2) { 
-    top: 15%; left: 15%;
+    top: 25%; left: 7%;
     background-color: #ffff00;
     box-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00;
     animation: lightBlink2 2s infinite; animation-delay: 0.2s; 
 }
 .light:nth-child(3) { 
-    top: 8%; left: 25%;
+    top: 35%; left: 6%;
     background-color: #0000ff;
     box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff;
     animation: lightBlink3 2s infinite; animation-delay: 0.4s; 
 }
 .light:nth-child(4) { 
-    top: 12%; left: 35%;
+    top: 45%; left: 8%;
     background-color: #00ff00;
     box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
     animation: lightBlink1 2s infinite; animation-delay: 0.6s; 
 }
 .light:nth-child(5) { 
-    top: 18%; left: 45%;
+    top: 55%; left: 6%;
     background-color: #ff0000;
     box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
     animation: lightBlink2 2s infinite; animation-delay: 0.8s; 
 }
 .light:nth-child(6) { 
-    top: 10%; left: 55%;
+    top: 65%; left: 7%;
     background-color: #ffff00;
     box-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00;
     animation: lightBlink3 2s infinite; animation-delay: 1s; 
 }
 .light:nth-child(7) { 
-    top: 14%; left: 65%;
+    top: 75%; left: 5%;
     background-color: #0000ff;
     box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff;
     animation: lightBlink1 2s infinite; animation-delay: 1.2s; 
 }
 .light:nth-child(8) { 
-    top: 9%; left: 75%;
+    top: 85%; left: 8%;
     background-color: #00ff00;
     box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
     animation: lightBlink2 2s infinite; animation-delay: 1.4s; 
 }
+/* Côté droit : THINGS + une lettre vide */
 .light:nth-child(9) { 
-    top: 16%; left: 85%;
+    top: 15%; left: 95%;
     background-color: #ff0000;
     box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
     animation: lightBlink3 2s infinite; animation-delay: 1.6s; 
 }
 .light:nth-child(10) { 
-    top: 11%; left: 95%;
+    top: 30%; left: 93%;
     background-color: #ffff00;
     box-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00;
     animation: lightBlink1 2s infinite; animation-delay: 1.8s; 
 }
 .light:nth-child(11) { 
-    top: 88%; left: 8%;
+    top: 45%; left: 94%;
     background-color: #0000ff;
     box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff;
-    animation: lightBlink2 2s infinite; animation-delay: 0.3s; 
+    animation: lightBlink2 2s infinite; animation-delay: 2s; 
 }
 .light:nth-child(12) { 
-    top: 92%; left: 22%;
+    top: 60%; left: 92%;
     background-color: #00ff00;
     box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
-    animation: lightBlink3 2s infinite; animation-delay: 0.7s; 
+    animation: lightBlink3 2s infinite; animation-delay: 2.2s; 
 }
 .light:nth-child(13) { 
-    top: 90%; left: 50%;
+    top: 75%; left: 95%;
     background-color: #ff0000;
     box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
-    animation: lightBlink1 2s infinite; animation-delay: 1.1s; 
+    animation: lightBlink1 2s infinite; animation-delay: 2.4s; 
 }
 .light:nth-child(14) { 
-    top: 86%; left: 78%;
+    top: 90%; left: 93%;
     background-color: #ffff00;
     box-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00;
-    animation: lightBlink2 2s infinite; animation-delay: 1.5s; 
+    animation: lightBlink2 2s infinite; animation-delay: 2.6s; 
+}
+.light:nth-child(11) { 
+    display: none;
+}
+.light:nth-child(12) { 
+    display: none;
+}
+.light:nth-child(13) { 
+    display: none;
+}
+.light:nth-child(14) { 
+    display: none;
 }
 .light:nth-child(15) { 
-    top: 91%; left: 92%;
-    background-color: #0000ff;
-    box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff;
-    animation: lightBlink3 2s infinite; animation-delay: 0.5s; 
+    display: none;
 }
 
 .netflix-logo {
@@ -285,6 +295,54 @@ body {
     z-index: 2;
 }
 
+#reset-btn {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff0000;
+    background-color: #000000;
+    border: 2px solid #ff0000;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 8px 0;
+    transition: all 0.3s;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000;
+    box-shadow: 
+        0 0 10px rgba(255, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+}
+
+#reset-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    border-radius: 6px;
+    z-index: -1;
+}
+
+#reset-btn:hover {
+    background-color: #ff0000;
+    color: #000000;
+    text-shadow: none;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 0, 1),
+        inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+#reset-btn:active {
+    transform: scale(0.95);
+}
+
 .card {
     background-color: #1a1a1a;
     border: 2px solid #ff0000;
@@ -328,11 +386,10 @@ body {
 .card .card-content {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
     border-radius: 8px;
+    object-fit: cover;
+    transition: opacity 0.3s;
+    pointer-events: none;
 }
 
 .card:not(.flipped) .card-content {
