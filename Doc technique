@@ -1,0 +1,54 @@
+jeu de mémoire (Memory Game) sur le thème de Stranger Things. Voici l'explication détaillée :
+
+Structure générale
+Le jeu utilise 8 images différentes (Eleven, Demogorgon, vélo, gaufres, etc.) qui sont dupliquées pour créer 16 cartes. Le joueur doit retrouver les paires en retournant les cartes.
+
+script.js - Logique du jeu
+1. Configuration (lignes 1-28)
+
+CARDS : tableau contenant les chemins des 8 images
+Constantes de scoring : +100 points par paire trouvée, -10 par erreur
+Variables d'état : cartes sélectionnées, chronomètre, score
+2. Fonctions principales
+
+createCard(cardImage) : crée un élément HTML pour chaque carte avec son image
+shuffleArray(array) : mélange aléatoirement les cartes avec l'algorithme Fisher-Yates
+startTimer() / updateTimer() / stopTimer() : gèrent le chronomètre qui démarre au premier clic
+updateScore() : affiche le score actuel
+launchConfetti() : anime des confettis rouges et blancs à la victoire
+3. Mécanique de jeu
+
+onCardClick(e) : fonction principale déclenchée à chaque clic sur une carte
+
+Démarre le chrono au premier clic
+Empêche de cliquer plus de 2 cartes à la fois
+Ajoute la classe flipped pour retourner la carte
+Compare les 2 cartes sélectionnées
+handleMatch(cards) : quand 2 cartes correspondent
+
+Ajoute la classe matched
+Augmente le score de 100
+Vérifie si le jeu est terminé
+handleMismatch(cards) : quand 2 cartes ne correspondent pas
+
+Réduit le score de 10 (sans descendre sous 0)
+Retourne les cartes après 1 seconde
+4. Initialisation
+
+initGame() : réinitialise tout et crée les 16 cartes mélangées
+resetGame() : relance une nouvelle partie via le bouton
+index.html - Structure
+Particules animées en arrière-plan
+Guirlande de lumières clignotantes formant "STRANGER THINGS"
+Logo Netflix stylisé
+Titre avec style Stranger Things
+Plateau de jeu (#game-board) où les cartes sont ajoutées dynamiquement
+Affichage du chrono, score et bouton reset
+Bibliothèque canvas-confetti pour l'animation de victoire
+style.css - Apparence
+Fond noir avec pulsation rouge façon Stranger Things
+Animation des lumières de Noël clignotantes (référence à la série)
+Cartes avec effet de retournement 3D
+Effets de particules flottantes
+Design rétro années 80
+Le code est bien structuré avec des commentaires JSDoc et une séparation claire des responsabilités !
